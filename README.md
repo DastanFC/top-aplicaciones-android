@@ -1,13 +1,12 @@
 # 📱 Mis Apps Imprescindibles 2026
 
-| NAVEGADORES | |
-|:---:|:---:|
-| [![Stargon](https://tu-imagen-stargon.png)](https://play.google.com/store/apps/details?id=net.stargon.stargon) <br> **Stargon** | [![Brave](https://tu-imagen-brave.png)](https://play.google.com/store/apps/details?id=com.brave.browser) <br> **Brave** |
-| Navegador ligero y personalizable | Privacidad y bloqueo de anuncios |
+| 🌐 NAVEGADORES |
+| :--- |
+| **Stargon** <br> Navegador potente y personalizable basado en Webview. Incluye barra inferior de búsqueda, bloqueador de publicidad y consume muy poca RAM y batería. <br> [📥 Descargar](https://play.google.com/store/apps/details?id=net.stargon.stargon) |
+| **Brave** <br> Navegador basado en Chromium que bloquea anuncios y rastreadores por defecto, mejorando la velocidad y el ahorro de datos. <br> [📥 Descargar](https://play.google.com/store/apps/details?id=com.brave.browser) |
 
----
+<br>
 
-| HERRAMIENTAS | |
-|:---:|:---:|
-| [![Nova](https://tu-imagen-nova.png)](https://link-nova.com) <br> **Nova Launcher** | [![SDMaid](https://tu-imagen-sdmaid.png)](https://link-sdmaid.com) <br> **SD Maid** |
-| Personalización total | Limpieza de sistema |
+| 🛠️ HERRAMIENTAS |
+| :--- |
+| **SD Maid** <br> La mejor herramienta para limpieza profunda del sistema y mantenimiento de archivos. <br> [📥 Descargar](https://play.google.com/store/apps/details?id=eu.thesimpledev.sdmaid) |
