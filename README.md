@@ -1,6 +1,6 @@
-# 📱 TOP APLICACIONES ANDROID IMPRESCINDIBLES 
+# 📱 TOP APLICACIONES ANDROID IMPRESCINDIBLES
 
-| 🌐 NAVEGADORES |
+| 🌐 NAVEGADORES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 | :--- |
-| **Stargon** <br> Navegador potente y personalizable basado en Webview. Barra inferior y bajo consumo. <br><br><center> [![Descargar](https://img.shields.io/badge/Descargar-blue?style=for-the-badge&logo=android&logoColor=white)](https://play.google.com/store/apps/details?id=net.stargon.stargon) |
-| **Brave** <br> Navegador basado en Chromium que bloquea anuncios y rastreadores por defecto. <br><br><center> [![Descargar](https://img.shields.io/badge/Descargar-orange?style=for-the-badge&logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=com.brave.browser) |
+| **Stargon** <br> Navegador potente y personalizable basado en Webview. Barra inferior y bajo consumo. <div align="right">[![Descargar](https://img.shields.io/badge/DESCARGAR-blue?style=for-the-badge&logo=android&logoColor=white)](https://play.google.com/store/apps/details?id=net.stargon.stargon)</div> |
+| **Brave** <br> Navegador basado en Chromium que bloquea anuncios y rastreadores por defecto. <div align="right">[![Descargar](https://img.shields.io/badge/DESCARGAR-orange?style=for-the-badge&logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=com.brave.browser)</div> |
