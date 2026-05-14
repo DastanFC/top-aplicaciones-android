@@ -223,7 +223,7 @@
   font-size: 0.9375rem;
   color: var(--md-on-surf-var);
   line-height: 1.55;
-  max-width: 88%; /* Esto hace que el texto se vea más largo en PC */
+  max-width: 100%; /* Esto hace que el texto se vea más largo en PC */
   width: 100%;
 }
 
@@ -327,6 +327,22 @@
     .dl-btn span { display: none; }
     .dl-btn { padding: 10px; border-radius: 50%; align-self: center; margin-top: 2px; }
   }
+
+  .footer-update {
+    display: inline-flex;
+    align-items: center;
+    background: #F9DEDC; /* Rojo claro */
+    color: #410E0B;      /* Texto rojo oscuro */
+    border: 1px solid #F2B8B5;
+    border-radius: var(--md-radius-xl);
+    padding: 10px 18px;
+    font-family: var(--md-font);
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 20px;
+    text-decoration: none;
+  }
+
 </style>
 </head>
 <body>
@@ -812,7 +828,7 @@
         </div>
         <a class="dl-btn warn" href="https://t.me/dixmaxappsoficial" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span>Ir al grupo</span>
+          <span>Telegram</span>
         </a>
       </div>
 
@@ -911,7 +927,7 @@
         </div>
         <a class="dl-btn warn" href="https://t.me/TikTokModCloud" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span>Ir al grupo</span>
+          <span>Telegram</span>
         </a>
       </div>
 
@@ -923,7 +939,7 @@
         </div>
         <a class="dl-btn warn" href="https://t.me/instasmashrepo" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span>Ir al grupo</span>
+          <span>Telegram</span>
         </a>
       </div>
 
@@ -1067,7 +1083,7 @@
         </div>
         <a class="dl-btn warn" href="https://t.me/joinchat/uFSM4RpYaloyODlh" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span>Ir al grupo</span>
+          <span>Telegram</span>
         </a>
       </div>
 
@@ -1079,7 +1095,7 @@
         </div>
         <a class="dl-btn warn" href="https://t.me/fctv33" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span>Ir al grupo</span>
+          <span>Telegram</span>
         </a>
       </div>
 
@@ -1089,10 +1105,10 @@
 
 
 <div class="footer">
-    <span class="dl-btn " style="cursor: default; text-decoration: none;">
-        <strong>Última actualización : 13/05/2026</strong>
-    </span>
-</div>
+      <span class="footer-update">
+          <strong>Última actualización: <span id="fecha-auto"></span></strong>
+      </span>
+  </div>
 
     <div class="footer">
     <p><strong>LEYENDA DE LOS ICONOS :</strong></p>
@@ -1101,12 +1117,20 @@
         ⚠️ &nbsp;<strong>Icono de aviso</strong> — Usa estas apps bajo tu responsabilidad. NO me hago responsable de ellas.
         
       </span>
-
       
     </div>
   </div>
 
 </main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Detecta la última modificación del archivo
+    const fecha = new Date(document.lastModified);
+    const opciones = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    document.getElementById("fecha-auto").innerText = fecha.toLocaleDateString('es-ES', opciones);
+  });
+</script>
 
 </body>
 </html>
