@@ -251,6 +251,8 @@
     font-weight: 700;
     padding: 4px 10px;
     border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* ── BOTÓN SUBIR ── */
@@ -387,6 +389,18 @@
   body.dark .chip:hover {
     background: var(--md-primary-cont);
     color: var(--md-primary);
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 28px 20px 24px;
+    }
+    .hero h1 {
+      font-size: 2rem;
+    }
+    .hero-counter {
+      margin-top: 8px;
+    }
   }
   .app-card.hidden { display: none; }
   .section.all-hidden { display: none; }
@@ -823,7 +837,7 @@
   </section>
 
    <section class="section">
-    <div class="section-header"><div class="section-icon-emoji">🎬</div><h2 class="section-title">Cine y Televisión</h2></div>
+    <div class="section-header"><div class="section-icon-emoji">🎬</div><h2 class="section-title">CINE Y TELEVISIÓN</h2></div>
     <div class="cards-grid">
       <a href="https://t.me/dixmaxappsoficial#" class="app-card" target="_blank" data-icon="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiMyMjlFRDkiLz48cGF0aCBkPSJNOC4yOSAxMi44NGwxLjk2IDUuNDRzLjI0LjUuNS41LjQxLS4yNC40MS0uMjRsMS4xLTEuMDYgMi4yOCAxLjY4cy45OC40OCAxLjE3LS41MmwxLjc5LTguNDNzLjIyLTEuMTItLjg3LS42NWwtOS40OSAzLjY2cy0uOTcuMzktLjg1LjYyeiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=">
         <div class="app-name">DixMax</div>
