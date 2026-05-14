@@ -239,13 +239,13 @@
     line-height: 1;
   }
 
+/* ── BOTÓN DESCARGA ── */
 .dl-btn {
-  flex-shrink: 0;       /* <--- ESTA ES LA CLAVE para que no sea "inmenso" */
+  flex-shrink: 0;         /* Evita que el botón se estire */
   display: inline-flex;
   align-items: center;
-  justify-content: center; /* Añade esto para centrar el icono y el texto */
   gap: 6px;
-  background: var(--md-surf-var); /* Si se ve negro, prueba poner #E7E0EC directamente */
+  background: var(--md-surf-var);
   color: var(--md-primary);
   border: none;
   border-radius: var(--md-radius-xl);
@@ -253,8 +253,10 @@
   font-family: var(--md-font);
   font-size: 13px;
   font-weight: 500;
-  white-space: nowrap;  /* Añade esto para que el texto del botón no se parta */
-  min-width: fit-content; /* Asegura que solo ocupe lo necesario */
+  cursor: pointer;
+  text-decoration: none; /* <--- ESTO QUITA EL SUBRAYADO */
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
 }
 
   .dl-btn svg {
@@ -747,7 +749,7 @@
           <div class="app-name">Kreate Music</div>
           <div class="app-desc">Alternativa a Spotify para Android. Interfaz intuitiva y amplia biblioteca de música.</div>
         </div>
-        <a class="dl-btn" href="github.com/knighthat/Kreate/releases" target="_blank" rel="noopener">
+        <a class="dl-btn" href="https://github.com/knighthat/Kreate/releases" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
           <span>Github</span>
         </a>
