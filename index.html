@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Top aplicaciones Android - Dastan FC</title>
+
+<meta name="description" content="Una recopilación exquisita de las mejores aplicaciones Android. Navegadores, launchers, galería, reproductores, utilidades y mucho más.">
+<meta property="og:title" content="TOP Aplicaciones Android - Dastan FC">
+<meta property="og:description" content="Una recopilación exquisita de las mejores aplicaciones Android. Más de 70 apps seleccionadas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dastanfc.github.io/top-aplicaciones-android/">
+<meta property="og:image" content="https://raw.githubusercontent.com/DastanFC/top-aplicaciones-android/main/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TOP Aplicaciones Android - Dastan FC">
+<meta name="twitter:description" content="Una recopilación exquisita de las mejores aplicaciones Android.">
+<meta name="theme-color" content="#2D6A4F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -325,6 +336,58 @@
   .btn-darkmode:hover {
     background: var(--md-primary-cont);
   }
+
+  /* ── CHIPS CATEGORÍAS ── */
+  .chips-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 20px 0;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .chips-wrap::-webkit-scrollbar { display: none; }
+
+  @media (max-width: 600px) {
+    .chips-wrap {
+      flex-wrap: nowrap;
+      padding: 12px 16px 0;
+    }
+  }
+
+  .chip {
+    background: var(--md-surf-var);
+    border: 1.5px solid var(--md-outline-var);
+    color: var(--md-on-surf-var);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: var(--md-font);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .chip:hover {
+    background: var(--md-primary-cont);
+    border-color: var(--md-primary);
+    color: var(--md-primary);
+  }
+
+  body.dark .chip {
+    background: var(--md-surf-var);
+    border-color: var(--md-outline-var);
+    color: var(--md-on-surf-var);
+  }
+
+  body.dark .chip:hover {
+    background: var(--md-primary-cont);
+    color: var(--md-primary);
+  }
   .app-card.hidden { display: none; }
   .section.all-hidden { display: none; }
 </style>
@@ -345,6 +408,7 @@
     <input class="search-input" type="text" id="buscador" placeholder="Buscar app... (ej: Brave, galería, teclado)">
   </div>
 </div>
+<div class="chips-wrap" id="chipsWrap"></div>
 <div class="search-empty" id="sinResultados">😕 No se encontró ninguna app con ese nombre.</div>
 
 <main class="main">
@@ -874,6 +938,22 @@
       const isDark = document.body.classList.toggle('dark');
       btnDark.textContent = isDark ? '☀️' : '🌙';
       localStorage.setItem('darkmode', isDark ? '1' : '0');
+    });
+
+
+    // Chips de categorías
+    const chipsWrap = document.getElementById('chipsWrap');
+    document.querySelectorAll('.section').forEach(section => {
+      const titleEl = section.querySelector('.section-title');
+      const iconEl  = section.querySelector('.section-icon-emoji');
+      if (!titleEl) return;
+      const chip = document.createElement('button');
+      chip.classList.add('chip');
+      chip.textContent = (iconEl ? iconEl.textContent + ' ' : '') + titleEl.textContent;
+      chip.addEventListener('click', () => {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      chipsWrap.appendChild(chip);
     });
 
     // Inyectar icono en cada tarjeta leyendo el data-icon que ya tiene
