@@ -218,6 +218,58 @@
     color: var(--md-on-surf-var);
     font-size: 1.1rem;
   }
+  /* ── CONTADOR HERO ── */
+  .hero-counter {
+    margin-top: 16px;
+    font-size: 1rem;
+    color: #95D5B2;
+    opacity: 0.9;
+  }
+  .hero-counter span {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: white;
+  }
+
+  /* ── BADGE APPS POR CATEGORÍA ── */
+  .section-count {
+    margin-left: auto;
+    background: var(--md-primary-cont);
+    color: var(--md-primary);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  /* ── BOTÓN SUBIR ── */
+  .btn-top {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--md-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 999;
+  }
+  .btn-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .btn-top:hover {
+    background: var(--md-secondary);
+  }
   .app-card.hidden { display: none; }
   .section.all-hidden { display: none; }
 </style>
@@ -227,6 +279,7 @@
 <header class="hero">
   <h1>TOP APLICACIONES <span>ANDROID</span></h1>
   <p>Una recopilación exquisita de lo mejor que debería de estar en tu móvil.</p>
+  <p class="hero-counter"><span id="total-apps">0</span> aplicaciones recopiladas</p>
 </header>
 
 <div class="search-wrap">
@@ -692,6 +745,8 @@
 
 </main>
 
+<button class="btn-top" id="btnTop" title="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+
 <footer class="footer">
   <div><strong>Última actualización: <span id="fecha-auto"></span></strong></div>
   <div class="footer-legend">
@@ -729,6 +784,28 @@
       });
 
       sinResultados.style.display = (!alguna && q) ? 'block' : 'none';
+    });
+
+    // Contador total de apps
+    const totalApps = document.querySelectorAll('a.app-card').length;
+    document.getElementById('total-apps').textContent = totalApps;
+
+    // Apps por categoría
+    document.querySelectorAll('.section').forEach(section => {
+      const count = section.querySelectorAll('a.app-card').length;
+      const header = section.querySelector('.section-header');
+      if (!header) return;
+      const badge = document.createElement('span');
+      badge.classList.add('section-count');
+      badge.textContent = count + ' apps';
+      header.appendChild(badge);
+    });
+
+
+    // Botón subir
+    const btnTop = document.getElementById('btnTop');
+    window.addEventListener('scroll', () => {
+      btnTop.classList.toggle('visible', window.scrollY > 300);
     });
 
     // Inyectar icono en cada tarjeta leyendo el data-icon que ya tiene
