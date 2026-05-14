@@ -270,6 +270,61 @@
   .btn-top:hover {
     background: var(--md-secondary);
   }
+
+  /* ── MODO OSCURO ── */
+  body.dark {
+    --md-primary:       #95D5B2;
+    --md-primary-cont:  #1B4332;
+    --md-on-primary:    #1B4332;
+    --md-secondary:     #95D5B2;
+    --md-surface:       #111311;
+    --md-surf-var:      #1C1F1C;
+    --md-on-surf:       #E2E8E2;
+    --md-on-surf-var:   #A0ABA0;
+    --md-outline-var:   #2E332E;
+  }
+
+  body.dark .app-card {
+    background: #1C1F1C;
+  }
+
+  body.dark .search-wrap {
+    background: rgba(17,19,17,0.92);
+  }
+
+  body.dark .search-input {
+    background: #1C1F1C;
+    color: var(--md-on-surf);
+  }
+
+  body.dark .footer-legend {
+    background: #2a2500;
+    border-color: #5a4a00;
+    color: #c8b560;
+  }
+
+  /* Botón toggle modo oscuro */
+  .btn-darkmode {
+    position: fixed;
+    bottom: 28px;
+    right: 84px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--md-surf-var);
+    border: 1.5px solid var(--md-outline-var);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 999;
+    transition: background 0.3s;
+    font-size: 20px;
+  }
+  .btn-darkmode:hover {
+    background: var(--md-primary-cont);
+  }
   .app-card.hidden { display: none; }
   .section.all-hidden { display: none; }
 </style>
@@ -745,6 +800,7 @@
 
 </main>
 
+<button class="btn-darkmode" id="btnDark" title="Modo oscuro">🌙</button>
 <button class="btn-top" id="btnTop" title="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
 
 <footer class="footer">
@@ -806,6 +862,18 @@
     const btnTop = document.getElementById('btnTop');
     window.addEventListener('scroll', () => {
       btnTop.classList.toggle('visible', window.scrollY > 300);
+    });
+
+
+    // Modo oscuro
+    const btnDark = document.getElementById('btnDark');
+    const savedDark = localStorage.getItem('darkmode') === '1';
+    if (savedDark) { document.body.classList.add('dark'); btnDark.textContent = '☀️'; }
+
+    btnDark.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark');
+      btnDark.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('darkmode', isDark ? '1' : '0');
     });
 
     // Inyectar icono en cada tarjeta leyendo el data-icon que ya tiene
