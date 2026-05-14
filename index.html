@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TOP APLICACIONES ANDROID · Edición Completa</title>
+<title>Android Vault · Completo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -31,7 +31,6 @@
     padding-bottom: 40px;
   }
 
-  /* ── HERO ── */
   .hero {
     background: linear-gradient(180deg, #1B4332 0%, #2D6A4F 100%);
     padding: 60px 24px;
@@ -47,9 +46,8 @@
 
   .hero h1 span { color: #95D5B2; }
 
-  /* ── MAIN CONTENT ── */
   .main {
-    max-width: 1200px;
+    max-width: 1400px; /* Un poco más ancho para que quepan las 5 columnas mejor */
     margin: 40px auto 0;
     padding: 0 20px;
   }
@@ -80,32 +78,26 @@
     color: var(--md-secondary);
   }
 
-  /* ── GRID ── */
-/* ── GRID ADAPTABLE (HASTA 5 COLUMNAS) ── */
+  /* ── GRID ADAPTABLE (MÓVIL 1, TABLET 2, PC 5) ── */
   .cards-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Por defecto en móvil: 1 columna */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  /* En tablets o pantallas medianas: 2 o 3 columnas */
-  @media (min-width: 768px) {
-    .cards-grid {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
+  @media (min-width: 600px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* En pantallas de PC: Forzamos las 5 columnas */
   @media (min-width: 1024px) {
-    .cards-grid {
-      grid-template-columns: repeat(5, 1fr);
-    }
+    .cards-grid { grid-template-columns: repeat(5, 1fr); }
   }
+
   .app-card {
     background: white;
     border: 1px solid var(--md-outline-var);
     border-radius: var(--md-radius-lg);
-    padding: 24px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -122,29 +114,28 @@
 
   .app-name { 
     font-family: var(--md-font-disp);
-    font-weight: 700; font-size: 1.2rem; 
+    font-weight: 700; font-size: 1.1rem; 
     margin-bottom: 8px;
   }
 
   .app-desc { 
-    font-size: 0.95rem; color: var(--md-on-surf-var); 
-    line-height: 1.5; margin-bottom: 20px;
+    font-size: 1rem;; color: var(--md-on-surf-var); 
+    line-height: 1.4; margin-bottom: 20px;
   }
 
   .dl-btn {
     align-self: flex-start;
     background: var(--md-surf-var);
     color: var(--md-primary);
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 100px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    display: flex; align-items: center; gap: 8px;
+    display: flex; align-items: center; gap: 6px;
   }
 
   .app-card:hover .dl-btn { background: var(--md-primary); color: white; }
 
-  /* ── FOOTER ── */
   .footer {
     text-align: center;
     margin-top: 60px;
@@ -162,9 +153,8 @@
     border-radius: 12px;
     font-size: 13px;
     color: #795548;
+    text-align: left;
   }
-
-  @media (max-width: 600px) { .cards-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -179,130 +169,157 @@
   <section class="section">
     <div class="section-header"><div class="section-icon-emoji">🌐</div><h2 class="section-title">Navegadores Web</h2></div>
     <div class="cards-grid">
-      <a href="https://play.google.com/store/search?q=stargon" class="app-card">
+      <a href="https://play.google.com/store/apps/details?id=com.pion.stargon" class="app-card" target="_blank">
         <div class="app-name">Stargon</div>
         <p class="app-desc">Basado en Chromium. Bloqueador de publicidad y muy personalizable. Es el que uso diariamente.</p>
         <div class="dl-btn">Play Store</div>
       </a>
-      <a href="..." class="app-card"><div class="app-name">Brave</div><p class="app-desc">Bloqueador nativo y reproducción de fondo para YouTube Web.</p><div class="dl-btn">Play Store</div></a>
-      <a href="..." class="app-card"><div class="app-name">Soul</div><p class="app-desc">El más personalizable de todos. Rápido y sin addons.</p><div class="dl-btn">Play Store</div></a>
-      <a href="..." class="app-card"><div class="app-name">Samsung Browser</div><p class="app-desc">Excelente optimización, personalizable y con modo oscuro superior.</p><div class="dl-btn">Play Store</div></a>
-      <a href="..." class="app-card"><div class="app-name">Cromite</div><p class="app-desc">Alternativa a Chrome sin telemetría y con bloqueador integrado. Open Source.</p><div class="dl-btn">GitHub</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.brave.browser" class="app-card" target="_blank">
+        <div class="app-name">Brave</div>
+        <p class="app-desc">Bloqueador nativo y reproducción de fondo para YouTube Web.</p>
+        <div class="dl-btn">Play Store</div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.soul.android.uubrowser" class="app-card" target="_blank">
+        <div class="app-name">Soul</div>
+        <p class="app-desc">El más personalizable de todos. Rápido y sin addons.</p>
+        <div class="dl-btn">Play Store</div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.sec.android.app.sbrowser" class="app-card" target="_blank">
+        <div class="app-name">Samsung Browser</div>
+        <p class="app-desc">Excelente optimización, personalizable y con modo oscuro superior.</p>
+        <div class="dl-btn">Play Store</div>
+      </a>
+      <a href="https://github.com/uazo/cromite/releases" class="app-card" target="_blank">
+        <div class="app-name">Cromite</div>
+        <p class="app-desc">Alternativa a Chrome sin telemetría y con bloqueador integrado. Open Source.</p>
+        <div class="dl-btn">GitHub</div>
+      </a>
     </div>
   </section>
 
   <section class="section">
     <div class="section-header"><div class="section-icon-emoji">📁</div><h2 class="section-title">Gestión de Archivos</h2></div>
     <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">Cx File</div><p class="app-desc">Potente y versátil. Soporta nubes y redes locales sin publicidad.</p><div class="dl-btn">Play Store</div></a>
-      <a href="..." class="app-card"><div class="app-name">Gestor de archivos</div><p class="app-desc">Explorador muy completo y estético para el uso diario.</p><div class="dl-btn">Play Store</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer" class="app-card" target="_blank">
+        <div class="app-name">Cx File</div>
+        <p class="app-desc">Potente y versátil. Soporta nubes y redes locales sin publicidad.</p>
+        <div class="dl-btn">Play Store</div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.alphainventor.filemanager" class="app-card" target="_blank">
+        <div class="app-name">Gestor de archivos</div>
+        <p class="app-desc">Explorador muy completo y estético para el uso diario.</p>
+        <div class="dl-btn">Play Store</div>
+      </a>
     </div>
   </section>
 
   <section class="section">
     <div class="section-header"><div class="section-icon-emoji">💡</div><h2 class="section-title">Vida más fácil</h2></div>
     <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">Syft</div><p class="app-desc">Resúmenes de noticias por IA basados en tus temas favoritos.</p><div class="dl-btn">Gratis</div></a>
-      <a href="..." class="app-card"><div class="app-name">Daylio</div><p class="app-desc">Diario emocional interactivo con diseño elegante y simple.</p><div class="dl-btn">Gratis</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.syft.app" class="app-card" target="_blank">
+        <div class="app-name">Syft</div>
+        <p class="app-desc">Resúmenes de noticias por IA basados en tus temas favoritos.</p>
+        <div class="dl-btn">Play Store</div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=net.daylio" class="app-card" target="_blank">
+        <div class="app-name">Daylio</div>
+        <p class="app-desc">Diario emocional interactivo con diseño elegante y simple.</p>
+        <div class="dl-btn">Play Store</div>
+      </a>
     </div>
   </section>
 
   <section class="section">
     <div class="section-header"><div class="section-icon-emoji">🖼️</div><h2 class="section-title">Galería de fotos</h2></div>
     <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">Aves Gallery</div><p class="app-desc">La más potente del mundo open source con manejo de metadatos.</p><div class="dl-btn">GitHub</div></a>
-      <a href="..." class="app-card"><div class="app-name">Fossify Gallery</div><p class="app-desc">Simplicidad y velocidad sin rastreadores ni publicidad.</p><div class="dl-btn">GitHub</div></a>
-      <a href="..." class="app-card"><div class="app-name">Lespas</div><p class="app-desc">Alternativa a Google Photos sincronizada con Nextcloud.</p><div class="dl-btn">GitHub</div></a>
+      <a href="https://github.com/deckerst/aves/releases" class="app-card" target="_blank">
+        <div class="app-name">Aves Gallery</div>
+        <p class="app-desc">La más potente del mundo open source con manejo de metadatos.</p>
+        <div class="dl-btn">GitHub</div>
+      </a>
+      <a href="https://github.com/FossifyOrg/Gallery/releases" class="app-card" target="_blank">
+        <div class="app-name">Fossify Gallery</div>
+        <p class="app-desc">Simplicidad y velocidad sin rastreadores ni publicidad.</p>
+        <div class="dl-btn">GitHub</div>
+      </a>
+      <a href="https://github.com/scubajeff/lespas/releases" class="app-card" target="_blank">
+        <div class="app-name">Lespas</div>
+        <p class="app-desc">Alternativa a Google Photos sincronizada con Nextcloud.</p>
+        <div class="dl-btn">GitHub</div>
+      </a>
     </div>
   </section>
 
   <section class="section">
     <div class="section-header"><div class="section-icon-emoji">⌨️</div><h2 class="section-title">Teclados</h2></div>
     <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">HeliBoard</div><p class="app-desc">Privado, offline y con escritura gestual basada en AOSP.</p><div class="dl-btn">GitHub</div></a>
-      <a href="..." class="app-card"><div class="app-name">Floriboard</div><p class="app-desc">Arquitectura moderna y flexibilidad máxima de personalización.</p><div class="dl-btn">GitHub</div></a>
+      <a href="https://github.com/Heliboard/Heliboard/releases" class="app-card" target="_blank">
+        <div class="app-name">HeliBoard</div>
+        <p class="app-desc">Privado, offline y con escritura gestual basada en AOSP.</p>
+        <div class="dl-btn">GitHub</div>
+      </a>
+      <a href="https://github.com/florisboard/florisboard/releases" class="app-card" target="_blank">
+        <div class="app-name">Floriboard</div>
+        <p class="app-desc">Arquitectura moderna y flexibilidad máxima de personalización.</p>
+        <div class="dl-btn">GitHub</div>
+      </a>
     </div>
   </section>
 
   <section class="section">
-    <div class="section-header"><div class="section-icon-emoji">📱</div><h2 class="section-title">Utilidades del sistema</h2></div>
+    <div class="section-header"><div class="section-icon-emoji">📱</div><h2 class="section-title">Utilidades</h2></div>
     <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">APK Extractor</div><p class="app-desc">Extrae APKs de tus aplicaciones instaladas fácilmente.</p><div class="dl-btn">Gratis</div></a>
-      <a href="..." class="app-card"><div class="app-name">Airpush Detector</div><p class="app-desc">Detecta y bloquea publicidad abusiva en notificaciones.</p><div class="dl-btn">Gratis</div></a>
-      <a href="..." class="app-card"><div class="app-name">Uso del Disco</div><p class="app-desc">Mapa visual del almacenamiento interno y externo.</p><div class="dl-btn">Gratis</div></a>
-      <a href="..." class="app-card"><div class="app-name">CPU-Z</div><p class="app-desc">Información técnica detallada de hardware y sistema.</p><div class="dl-btn">Gratis</div></a>
-      <a href="..." class="app-card"><div class="app-name">Gsam Battery</div><p class="app-desc">Monitoreo avanzado del consumo de batería con ADB.</p><div class="dl-btn">Gratis</div></a>
-      <a href="..." class="app-card"><div class="app-name">Ampere</div><p class="app-desc">Mide la velocidad real y salud de carga de tu batería.</p><div class="dl-btn">Gratis</div></a>
-      <a href="..." class="app-card"><div class="app-name">Teamviewer</div><p class="app-desc">Control remoto y conexión entre dispositivos Android.</p><div class="dl-btn">Gratis</div></a>
-      <a href="..." class="app-card"><div class="app-name">Settle Up</div><p class="app-desc">Gestión de gastos compartidos para grupos y viajes.</p><div class="dl-btn">Gratis</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.ext.ui" class="app-card" target="_blank"><div class="app-name">APK Extractor</div><p class="app-desc">Extrae APKs de tus aplicaciones instaladas.</p><div class="dl-btn">Play Store</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.brosmike.airpushdetector" class="app-card" target="_blank"><div class="app-name">Airpush Detector</div><p class="app-desc">Detecta publicidad abusiva en notificaciones.</p><div class="dl-btn">Play Store</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.google.android.diskusage" class="app-card" target="_blank"><div class="app-name">Uso del Disco</div><p class="app-desc">Mapa visual del almacenamiento interno.</p><div class="dl-btn">Play Store</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.cpuid.cpu_z" class="app-card" target="_blank"><div class="app-name">CPU-Z</div><p class="app-desc">Información técnica detallada de hardware.</p><div class="dl-btn">Play Store</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.gsamlabs.bbm" class="app-card" target="_blank"><div class="app-name">Gsam Battery</div><p class="app-desc">Monitoreo avanzado del consumo de batería.</p><div class="dl-btn">Play Store</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.g_mate.ampere" class="app-card" target="_blank"><div class="app-name">Ampere</div><p class="app-desc">Mide la velocidad real de carga de tu batería.</p><div class="dl-btn">Play Store</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.teamviewer.teamviewer.market.mobile" class="app-card" target="_blank"><div class="app-name">Teamviewer</div><p class="app-desc">Control remoto entre dispositivos Android.</p><div class="dl-btn">Play Store</div></a>
+      <a href="https://play.google.com/store/apps/details?id=com.settleup.android" class="app-card" target="_blank"><div class="app-name">Settle Up</div><p class="app-desc">Gestión de gastos compartidos para grupos.</p><div class="dl-btn">Play Store</div></a>
     </div>
   </section>
 
   <section class="section">
     <div class="section-header"><div class="section-icon-emoji">⚙️</div><h2 class="section-title">Power User (ADB)</h2></div>
     <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">Shizuku 💎</div><p class="app-desc">La llave maestra para ejecutar comandos sin Root.</p><div class="dl-btn">Play Store ⚠️</div></a>
-      <a href="..." class="app-card"><div class="app-name">Canta</div><p class="app-desc">Desinstala bloatware del sistema sin riesgo.</p><div class="dl-btn">GitHub ⚠️</div></a>
-      <a href="..." class="app-card"><div class="app-name">Hail</div><p class="app-desc">Congela apps para que no consuman recursos.</p><div class="dl-btn">GitHub ⚠️</div></a>
-      <a href="..." class="app-card"><div class="app-name">HyperCeiler</div><p class="app-desc">Navaja suiza para optimizar HyperOS y animaciones.</p><div class="dl-btn">GitHub ⚠️</div></a>
-      <a href="..." class="app-card"><div class="app-name">App Ops</div><p class="app-desc">Gestión de permisos ocultos del sistema Android.</p><div class="dl-btn">GitHub ⚠️</div></a>
-      <a href="..." class="app-card"><div class="app-name">Install with Options</div><p class="app-desc">Instalador avanzado de APKs con Shizuku.</p><div class="dl-btn">GitHub ⚠️</div></a>
+      <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api" class="app-card" target="_blank"><div class="app-name">Shizuku 💎</div><p class="app-desc">Ejecuta comandos sin Root.</p><div class="dl-btn">Play Store ⚠️</div></a>
+      <a href="https://github.com/samolego/Canta/releases" class="app-card" target="_blank"><div class="app-name">Canta</div><p class="app-desc">Desinstala bloatware sin riesgo.</p><div class="dl-btn">GitHub ⚠️</div></a>
+      <a href="https://github.com/aistra0528/Hail/releases" class="app-card" target="_blank"><div class="app-name">Hail</div><p class="app-desc">Congela apps para ahorrar recursos.</p><div class="dl-btn">GitHub ⚠️</div></a>
+      <a href="https://github.com/aistra0528/HyperCeiler/releases" class="app-card" target="_blank"><div class="app-name">HyperCeiler</div><p class="app-desc">Optimiza HyperOS y animaciones.</p><div class="dl-btn">GitHub ⚠️</div></a>
+      <a href="https://github.com/MuntashirAkon/AppOps/releases" class="app-card" target="_blank"><div class="app-name">App Ops</div><p class="app-desc">Gestión de permisos ocultos.</p><div class="dl-btn">GitHub ⚠️</div></a>
+      <a href="https://github.com/RikkaApps/InstallWithOptions/releases" class="app-card" target="_blank"><div class="app-name">Install Options</div><p class="app-desc">Instalador avanzado de APKs.</p><div class="dl-btn">GitHub ⚠️</div></a>
     </div>
   </section>
 
   <section class="section">
-    <div class="section-header"><div class="section-icon-emoji">🎵</div><h2 class="section-title">Música / Streaming</h2></div>
+    <div class="section-header"><div class="section-icon-emoji">🎵</div><h2 class="section-title">Música</h2></div>
     <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">Kreate Music</div><p class="app-desc">Alternativa intuitiva a Spotify para Android.</p><div class="dl-btn">GitHub</div></a>
-      <a href="..." class="app-card"><div class="app-name">Meulify</div><p class="app-desc">Interfaz similar a Spotify con amplia biblioteca.</p><div class="dl-btn">Gratis</div></a>
-      <a href="..." class="app-card"><div class="app-name">Metrolist</div><p class="app-desc">Cliente de YT Music sin anuncios y Material 3.</p><div class="dl-btn">GitHub</div></a>
-      <a href="..." class="app-card"><div class="app-name">Spotube</div><p class="app-desc">Biblioteca de Spotify con audio de fuentes libres.</p><div class="dl-btn">GitHub</div></a>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-header"><div class="section-icon-emoji">🎬</div><h2 class="section-title">Vídeo / Reproductores</h2></div>
-    <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">Dixmax</div><p class="app-desc">Streaming de todo tipo de contenidos.</p><div class="dl-btn">Telegram ⚠️</div></a>
-      <a href="..." class="app-card"><div class="app-name">MpvEX</div><p class="app-desc">Reproductor compatible con todos los códecs.</p><div class="dl-btn">GitHub</div></a>
-      <a href="..." class="app-card"><div class="app-name">VLC</div><p class="app-desc">El clásico open source sin publicidad y con gestor de red.</p><div class="dl-btn">Play Store</div></a>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-header"><div class="section-icon-emoji">💬</div><h2 class="section-title">Mods Redes Sociales</h2></div>
-    <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">TiktokMod</div><p class="app-desc">Sin publicidad, con autoscroll y descarga de vídeos.</p><div class="dl-btn">Telegram ⚠️</div></a>
-      <a href="..." class="app-card"><div class="app-name">My Insta</div><p class="app-desc">Instagram sin publicidad y con modo fantasma.</p><div class="dl-btn">Telegram ⚠️</div></a>
-      <a href="..." class="app-card"><div class="app-name">Twitter Piko</div><p class="app-desc">Twitter optimizado sin anuncios ni recomendaciones.</p><div class="dl-btn">GitHub ⚠️</div></a>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-header"><div class="section-icon-emoji">⚡</div><h2 class="section-title">Tiendas y Parches</h2></div>
-    <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">Morphe</div><p class="app-desc">Parcheador moderno para YouTube, Reddit y más.</p><div class="dl-btn">Web</div></a>
-      <a href="..." class="app-card"><div class="app-name">Orion Store</div><p class="app-desc">Tienda de apps parcheadas y verificadas.</p><div class="dl-btn">GitHub</div></a>
-      <a href="..." class="app-card"><div class="app-name">Obtainium</div><p class="app-desc">Actualiza apps directamente desde sus fuentes GitHub.</p><div class="dl-btn">GitHub</div></a>
-      <a href="..." class="app-card"><div class="app-name">Neo Store</div><p class="app-desc">Cliente moderno y rápido para F-Droid.</p><div class="dl-btn">GitHub</div></a>
-      <a href="..." class="app-card"><div class="app-name">Aurora Store</div><p class="app-desc">Acceso a Play Store sin servicios de Google.</p><div class="dl-btn">Web</div></a>
-    </div>
+      <a href="https://github.com/KRTirtho/spotube/releases" class="app-card" target="_blank"><div class="app-name">Spotube</div><p class="app-desc">Spotify con audio de fuentes libres.</p><div class="dl-btn">GitHub</div></a>
+      <a href="https://github.com/namidaco/namida/releases" class="app-card" target="_blank"><div class="app-name">Namida</div><p class="app-desc">Reproductor Material You bellísimo.</p><div class="dl-btn">GitHub</div></a>
+      </div>
   </section>
 
   <section class="section">
     <div class="section-header"><div class="section-icon-emoji">⚽</div><h2 class="section-title">Deportes</h2></div>
     <div class="cards-grid">
-      <a href="..." class="app-card"><div class="app-name">Agenda Deportes</div><p class="app-desc">La mejor para eventos en vivo. 2 años sin fallos.</p><div class="dl-btn">Telegram ⚠️</div></a>
-      <a href="..." class="app-card"><div class="app-name">FCTV33</div><p class="app-desc">Respaldo ideal para seguimientos deportivos.</p><div class="dl-btn">Telegram ⚠️</div></a>
+      <a href="https://t.me/agendadeportes" class="app-card" target="_blank">
+        <div class="app-name">Agenda Deportes</div>
+        <p class="app-desc">La mejor para eventos en vivo. 2 años sin fallos.</p>
+        <div class="dl-btn">Telegram ⚠️</div>
+      </a>
+      <a href="https://t.me/fctv33" class="app-card" target="_blank">
+        <div class="app-name">FCTV33</div>
+        <p class="app-desc">Respaldo ideal para seguimientos deportivos.</p>
+        <div class="dl-btn">Telegram ⚠️</div>
+      </a>
     </div>
   </section>
 
 </main>
 
 <footer class="footer">
-  <div class="footer-update">
-    <strong>Última actualización: <span id="fecha-auto"></span></strong>
-  </div>
+  <div><strong>Última actualización: <span id="fecha-auto"></span></strong></div>
   <div class="footer-legend">
     ⚠️ <strong>Icono de aviso</strong> — Usa estas apps bajo tu responsabilidad. NO me hago responsable de ellas.
   </div>
@@ -311,8 +328,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const fecha = new Date(document.lastModified);
-    const opciones = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    document.getElementById("fecha-auto").innerText = fecha.toLocaleDateString('es-ES', opciones);
+    document.getElementById("fecha-auto").innerText = fecha.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
   });
 </script>
 
