@@ -1545,7 +1545,7 @@ body {
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="logo">
+  <div class="logo" ondblclick="emergenciaAdmin()">
     <div class="logo-icon">📱</div>
     Recomiéndame un <em>móvil</em>
   </div>
@@ -2813,9 +2813,25 @@ let adminTabActual = 'usuarios';
 let adminBodyOpen = true;
 
 function mostrarAdminPanel() {
-  if (!usuario || usuario.nickname !== ADMIN_NICK) return;
+  if (!usuario) return;
+  const nick = (usuario.nickname || '').toLowerCase().trim();
+  if (nick !== ADMIN_NICK) return;
   document.getElementById('adminPanel').style.display = 'block';
   cargarAdminContent();
+}
+
+function emergenciaAdmin() {
+  if (!usuario) return;
+  const nick = (usuario.nickname || '').toLowerCase().trim();
+  if (nick !== ADMIN_NICK) return;
+  const panel = document.getElementById('adminPanel');
+  if (panel.style.display === 'none' || panel.style.display === '') {
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    cargarAdminContent();
+  } else {
+    panel.style.display = 'none';
+  }
 }
 
 function toggleAdminBody() {
