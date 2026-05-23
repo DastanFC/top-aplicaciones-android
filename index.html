@@ -406,13 +406,15 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-    // 🔧 CONFIGURACIÓN SUPABASE (YA CON TUS DATOS)
-    const SUPABASE_URL = "https://tabftlcqoeqcijztsgvt.supabase.co";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRhYmZ0bGNxb2VxY2lqenRzZ3Z0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1NTA5OTcsImV4cCI6MjA5NTEyNjk5N30.ie4YEln1GvzIsMtXfx2S9Ri0ZtBH4bRKbQcEr09uDxY";
     
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    
-    document.getElementById('fecha-auto').innerText = new Date().toLocaleDateString('es-ES');
+// 🔧 CONFIGURACIÓN SUPABASE
+const SUPABASE_URL = "https://tabftlcqoeqcijztsgvt.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRhYmZ0bGNxb2VxY2lqenRzZ3Z0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1NTA5OTcsImV4cCI6MjA5NTEyNjk5N30.ie4YEln1GvzIsMtXfx2S9Ri0ZtBH4bRKbQcEr09uDxY";
+
+const supabaseJs = window.supabase;
+const supabase = supabaseJs.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+document.getElementById('fecha-auto').innerText = new Date().toLocaleDateString('es-ES');
     
     async function cargarApps() {
         const { data: apps, error } = await supabase
