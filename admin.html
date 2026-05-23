@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Top Apps</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            padding: 30px 20px;
+        }
+        .container { max-width: 700px; margin: 0 auto; }
+        .card {
+            background: #16213e;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+            border: 1px solid #2a3a5e;
+        }
+        .card h2 { margin-bottom: 20px; color: #95D5B2; font-size: 18px; }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; font-size: 13px; color: #aaa; }
+        select, input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0f0f1a;
+            border: 1px solid #2a3a5e;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 14px;
+        }
+        .btn {
+            background: #2D6A4F;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .btn-danger { background: #c62828; }
+        .btn-danger:hover { background: #d32f2f; }
+        .app-item {
+            background: #0f0f1a;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-btn {
+            background: #c62828;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: #16213e;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            background: #0f0f1a;
+            border: 1px solid #2a3a5e;
+            border-radius: 10px;
+            color: white;
+        }
+        .error { color: #ef5350; margin-top: 15px; display: none; }
+        .admin-content { display: none; }
+        .success {
+            background: #2e7d32;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        h1 { margin-bottom: 10px; color: #2D6A4F; }
+        .sub { color: #888; margin-bottom: 30px; font-size: 14px; }
+        .stats {
+            background: #0f0f1a;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Pantalla de LOGIN -->
+    <div id="loginPanel" class="login-container">
+        <h2>🔐 Acceso restringido</h2>
+        <p style="color: #888; margin-bottom: 20px;">Solo administradores</p>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button id="btnLogin" class="btn" style="width: 100%;">Entrar</button>
+        <div id="loginError" class="error">❌ Credenciales incorrectas</div>
+    </div>
+
+    <!-- Panel de ADMIN (sale después de login correcto) -->
+    <div id="adminContent" class="admin-content">
+        <div class="container">
+            <h1>🔧 Panel de Administración</h1>
+            <div class="sub">Añade o elimina aplicaciones fácilmente</div>
+            
+            <div class="success" id="successMsg">✅ Operación completada</div>
+            
+            <div class="card">
+                <h2>➕ Añadir aplicación</h2>
+                <div class="form-group">
+                    <label>Categoría</label>
+                    <select id="categoria">
+                        <option value="Navegadores Web">🌐 Navegadores Web</option>
+                        <option value="Gestión de Archivos">📁 Gestión de Archivos</option>
+                        <option value="Launchers y personalización">🎨 Launchers y personalización</option>
+                        <option value="Vida más fácil">💡 Vida más fácil</option>
+                        <option value="Tiempo y clima">🌦️ Tiempo y clima</option>
+                        <option value="Emulación y Remote Play">🕹️ Emulación y Remote Play</option>
+                        <option value="Galería de fotos">🖼️ Galería de fotos</option>
+                        <option value="Reproductores de vídeo">🎞️ Reproductores de vídeo</option>
+                        <option value="Teclados">⌨️ Teclados</option>
+                        <option value="Utilidades">📱 Utilidades</option>
+                        <option value="Power User (ADB)">⚙️ Power User (ADB)</option>
+                        <option value="Streaming de audio">🎵 Streaming de audio</option>
+                        <option value="CINE Y TELEVISIÓN">🎬 CINE Y TELEVISIÓN</option>
+                        <option value="Deportes">⚽ Deportes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nombre de la app</label>
+                    <input type="text" id="nombre" placeholder="Ej: Chrome, VLC...">
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <textarea id="descripcion" rows="3" placeholder="Describe la app..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>URL de descarga</label>
+                    <input type="url" id="url" placeholder="https://play.google.com/...">
+                </div>
+                <div class="form-group">
+                    <label>Tipo de botón</label>
+                    <select id="tipoBoton">
+                        <option value="Play Store">📱 Play Store</option>
+                        <option value="GitHub">🐙 GitHub</option>
+                        <option value="Telegram">✈️ Telegram</option>
+                        <option value="Web Oficial">🌐 Web Oficial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>⚠️ Aviso amarillo</label>
+                    <select id="mostrarAviso">
+                        <option value="no">No</option>
+                        <option value="si">Sí (mostrar ⚠️)</option>
+                    </select>
+                </div>
+                <button class="btn" id="btnGuardar">✨ Guardar aplicación</button>
+            </div>
+            
+            <div class="card">
+                <h2>📋 Apps guardadas</h2>
+                <div class="stats" id="stats"></div>
+                <div id="appList"></div>
+                <button class="btn btn-danger" id="btnCerrarSesion" style="margin-top: 20px;">🚪 Cerrar sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // 🔧 CONFIGURACIÓN SUPABASE (YA CON TUS DATOS)
+        const SUPABASE_URL = "https://tabftlcqoeqcijztsgvt.supabase.co";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRhYmZ0bGNxb2VxY2lqenRzZ3Z0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1NTA5OTcsImV4cCI6MjA5NTEyNjk5N30.ie4YEln1GvzIsMtXfx2S9Ri0ZtBH4bRKbQcEr09uDxY";
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        function getEmoji(categoria) {
+            const emojis = {
+                "Navegadores Web": "🌐", "Gestión de Archivos": "📁",
+                "Launchers y personalización": "🎨", "Vida más fácil": "💡",
+                "Tiempo y clima": "🌦️", "Emulación y Remote Play": "🕹️",
+                "Galería de fotos": "🖼️", "Reproductores de vídeo": "🎞️",
+                "Teclados": "⌨️", "Utilidades": "📱", "Power User (ADB)": "⚙️",
+                "Streaming de audio": "🎵", "CINE Y TELEVISIÓN": "🎬", "Deportes": "⚽"
+            };
+            return emojis[categoria] || "📱";
+        }
+        
+        async function checkSession() {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                document.getElementById('loginPanel').style.display = 'none';
+                document.getElementById('adminContent').style.display = 'block';
+                cargarApps();
+            } else {
+                document.getElementById('loginPanel').style.display = 'block';
+                document.getElementById('adminContent').style.display = 'none';
+            }
+        }
+        
+        document.getElementById('btnLogin').addEventListener('click', async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const { error } = await supabase.auth.signInWithPassword({ email, password });
+            
+            if (error) {
+                document.getElementById('loginError').style.display = 'block';
+            } else {
+                document.getElementById('loginPanel').style.display = 'none';
+                document.getElementById('adminContent').style.display = 'block';
+                cargarApps();
+            }
+        });
+        
+        document.getElementById('btnCerrarSesion').addEventListener('click', async () => {
+            await supabase.auth.signOut();
+            document.getElementById('loginPanel').style.display = 'block';
+            document.getElementById('adminContent').style.display = 'none';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+        });
+        
+        async function cargarApps() {
+            const { data: apps, error } = await supabase
+                .from('apps')
+                .select('*')
+                .order('created_at', { ascending: false });
+            
+            if (error) return;
+            
+            // Actualizar estadísticas
+            const stats = document.getElementById('stats');
+            const total = apps.length;
+            const porCategoria = {};
+            apps.forEach(app => {
+                porCategoria[app.categoria] = (porCategoria[app.categoria] || 0) + 1;
+            });
+            stats.innerHTML = `📊 Total: ${total} apps | 📂 Categorías: ${Object.keys(porCategoria).length}`;
+            
+            const container = document.getElementById('appList');
+            if (!apps || apps.length === 0) {
+                container.innerHTML = '<p style="color: #666;">📭 No hay aplicaciones</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            apps.forEach(app => {
+                const div = document.createElement('div');
+                div.className = 'app-item';
+                div.innerHTML = `
+                    <div class="app-info">
+                        <strong>${escapeHtml(app.nombre)}</strong>
+                        <small>${app.categoria} | ${app.tipo_boton}</small>
+                        <div style="font-size: 11px; color: #666; margin-top: 4px;">${escapeHtml(app.descripcion.substring(0, 60))}${app.descripcion.length > 60 ? '...' : ''}</div>
+                    </div>
+                    <button class="delete-btn" data-id="${app.id}">🗑️</button>
+                `;
+                container.appendChild(div);
+            });
+            
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    const id = btn.dataset.id;
+                    const { error } = await supabase.from('apps').delete().eq('id', id);
+                    if (!error) {
+                        mostrarMensaje('✅ App eliminada');
+                        cargarApps();
+                    } else {
+                        mostrarMensaje('❌ Error al eliminar');
+                    }
+                });
+            });
+        }
+        
+        document.getElementById('btnGuardar').addEventListener('click', async () => {
+            const nuevaApp = {
+                categoria: document.getElementById('categoria').value,
+                nombre: document.getElementById('nombre').value.trim(),
+                descripcion: document.getElementById('descripcion').value.trim(),
+                url: document.getElementById('url').value.trim(),
+                tipo_boton: document.getElementById('tipoBoton').value,
+                mostrar_aviso: document.getElementById('mostrarAviso').value,
+                emoji: getEmoji(document.getElementById('categoria').value)
+            };
+            
+            if (!nuevaApp.nombre || !nuevaApp.descripcion || !nuevaApp.url) {
+                mostrarMensaje('❌ Rellena todos los campos');
+                return;
+            }
+            
+            const { error } = await supabase.from('apps').insert([nuevaApp]);
+            
+            if (error) {
+                mostrarMensaje('❌ Error: ' + error.message);
+            } else {
+                mostrarMensaje('✅ App guardada correctamente');
+                document.getElementById('nombre').value = '';
+                document.getElementById('descripcion').value = '';
+                document.getElementById('url').value = '';
+                cargarApps();
+            }
+        });
+        
+        function mostrarMensaje(msg) {
+            const el = document.getElementById('successMsg');
+            el.textContent = msg;
+            el.style.display = 'block';
+            setTimeout(() => el.style.display = 'none', 2000);
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        checkSession();
+    </script>
+</body>
+</html>
