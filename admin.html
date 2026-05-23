@@ -42,7 +42,6 @@
             font-weight: 600;
         }
         .btn-danger { background: #c62828; }
-        .btn-danger:hover { background: #d32f2f; }
         .app-item {
             background: #0f0f1a;
             border-radius: 12px;
@@ -88,17 +87,10 @@
         }
         h1 { margin-bottom: 10px; color: #2D6A4F; }
         .sub { color: #888; margin-bottom: 30px; font-size: 14px; }
-        .stats {
-            background: #0f0f1a;
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            font-size: 13px;
-        }
+        .stats { background: #0f0f1a; padding: 12px; border-radius: 10px; margin-bottom: 20px; font-size: 13px; }
     </style>
 </head>
 <body>
-    <!-- Pantalla de LOGIN -->
     <div id="loginPanel" class="login-container">
         <h2>🔐 Acceso restringido</h2>
         <p style="color: #888; margin-bottom: 20px;">Solo administradores</p>
@@ -108,7 +100,6 @@
         <div id="loginError" class="error">❌ Credenciales incorrectas</div>
     </div>
 
-    <!-- Panel de ADMIN (sale después de login correcto) -->
     <div id="adminContent" class="admin-content">
         <div class="container">
             <h1>🔧 Panel de Administración</h1>
@@ -179,7 +170,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        // 🔧 CONFIGURACIÓN SUPABASE (YA CON TUS DATOS)
         const SUPABASE_URL = "https://tabftlcqoeqcijztsgvt.supabase.co";
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRhYmZ0bGNxb2VxY2lqenRzZ3Z0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1NTA5OTcsImV4cCI6MjA5NTEyNjk5N30.ie4YEln1GvzIsMtXfx2S9Ri0ZtBH4bRKbQcEr09uDxY";
         
@@ -240,13 +230,10 @@
             
             if (error) return;
             
-            // Actualizar estadísticas
             const stats = document.getElementById('stats');
             const total = apps.length;
             const porCategoria = {};
-            apps.forEach(app => {
-                porCategoria[app.categoria] = (porCategoria[app.categoria] || 0) + 1;
-            });
+            apps.forEach(app => { porCategoria[app.categoria] = (porCategoria[app.categoria] || 0) + 1; });
             stats.innerHTML = `📊 Total: ${total} apps | 📂 Categorías: ${Object.keys(porCategoria).length}`;
             
             const container = document.getElementById('appList');
@@ -273,13 +260,9 @@
             document.querySelectorAll('.delete-btn').forEach(btn => {
                 btn.addEventListener('click', async (e) => {
                     const id = btn.dataset.id;
-                    const { error } = await supabase.from('apps').delete().eq('id', id);
-                    if (!error) {
-                        mostrarMensaje('✅ App eliminada');
-                        cargarApps();
-                    } else {
-                        mostrarMensaje('❌ Error al eliminar');
-                    }
+                    await supabase.from('apps').delete().eq('id', id);
+                    mostrarMensaje('✅ App eliminada');
+                    cargarApps();
                 });
             });
         }
