@@ -572,5 +572,14 @@
       "tipo": "Telegram",
       "warn": true
     }
+  ],
+  "Bloqueador de publicidad 🛡️": [
+    {
+      "nombre": "Adguard",
+      "desc": "es una aplicación y servicio de protección y bloqueo de publicidad a nivel del sistema operativo. Elimina anuncios molestos en navegadores y aplicaciones, bloquea rastreadores web y te protege contra sitios web maliciosos y estafas, acelerando la carga de contenido y ahorrando datos móviles.",
+      "url": "https://play.google.com/store/apps/details?id=com.adguard.android.contentblocker&hl=es",
+      "tipo": "Play Store",
+      "warn": false
+    }
   ]
 }
