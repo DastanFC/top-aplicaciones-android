@@ -576,7 +576,7 @@
   "Bloqueador de publicidad": [
     {
       "nombre": "AdGuard",
-      "desc": "Bloqueador de publicidad. Una herramienta potente, proteger tu privacidad contra el rastreo en línea , anuncios y resguardarte de sitios web peligrosos",
+      "desc": "Bloqueador de publicidad. Una herramienta potente, proteger tu privacidad contra el rastreo en línea , anuncios y resguardarte de sitios web peligrosos. También puedes configurar su DNS en ajustes de red en tu móvil.",
       "url": "https://play.google.com/store/search?q=adguard&c=apps&hl=es",
       "tipo": "Play Store",
       "warn": false
