@@ -24,6 +24,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
 
 <style>
+  /* [TODO: Aquí va TODO el CSS que ya tenías, idéntico al anterior] */
   :root {
     --md-primary:       #2D6A4F; 
     --md-primary-cont:  #D8F3DC; 
@@ -379,24 +380,13 @@
 
   let appsData = {};
 
-  // Función para obtener el emoji del título
-  function getEmojiFromTitle(titulo) {
-    const emojis = ['🌐', '📁', '🎨', '💡', '🌦️', '🕹️', '🖼️', '🎞️', '⌨️', '📱', '⚙️', '🎵', '🎬', '⚽'];
-    for (const emoji of emojis) {
-      if (titulo.startsWith(emoji)) {
-        return emoji;
-      }
-    }
-    return '📱';
-  }
-
   async function cargarApps() {
     const main = document.getElementById('mainContent');
     try {
       const response = await fetch('apps.json?v=' + Date.now());
       if (!response.ok) throw new Error('No se pudo cargar apps.json');
       appsData = await response.json();
-      const totalApps = Object.values(appsData).reduce((sum, arr) => sum + arr.length, 0);
+      const totalApps = Object.values(appsData).reduce((sum, cat) => sum + cat.apps.length, 0);
       document.getElementById('total-apps').textContent = totalApps;
       renderizarWeb();
     } catch (error) {
@@ -421,7 +411,7 @@
     categorias.forEach(cat => {
       const chip = document.createElement('button');
       chip.className = 'chip';
-      chip.textContent = cat;
+      chip.textContent = `${appsData[cat].emoji || '📱'} ${cat}`;
       chip.onclick = () => {
         const el = document.getElementById(cat.replace(/[^a-zA-Z0-9]/g, '_'));
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -430,16 +420,16 @@
     });
 
     // Crear secciones
-    for (const [categoria, apps] of Object.entries(appsData)) {
+    for (const [categoria, data] of Object.entries(appsData)) {
       const sectionId = categoria.replace(/[^a-zA-Z0-9]/g, '_');
-      const emoji = getEmojiFromTitle(categoria);
-      const tituloLimpio = categoria.replace(/^[\u{1F300}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]{1,2}\s*/u, '');
+      const emoji = data.emoji || '📱';
+      const apps = data.apps || [];
       
       let sectionHtml = `
         <section class="section" id="${sectionId}">
           <div class="section-header">
             <div class="section-icon-emoji">${emoji}</div>
-            <h2 class="section-title">${escapeHtml(tituloLimpio)}</h2>
+            <h2 class="section-title">${escapeHtml(categoria)}</h2>
             <span class="section-count">${apps.length} apps</span>
           </div>
           <div class="cards-grid">
