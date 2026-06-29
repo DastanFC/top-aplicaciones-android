@@ -473,6 +473,13 @@
         "url": "https://play.google.com/store/search?q=Settle%20Up&c=apps",
         "tipo": "Play Store",
         "warn": false
+      },
+      {
+        "nombre": "Morphhe",
+        "desc": "Aplicación que parche apps como Youtube , Youtube Music , Tiktok , Reddit , Gboard para añadir o quitarle funciones. Normalmente se usa para quitar la publicidad o convertirlas en \"premium\" al desbloquear esas funciones.",
+        "url": "https://morphe.software/",
+        "tipo": "Web Oficial",
+        "warn": true
       }
     ]
   },
